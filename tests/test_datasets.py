@@ -363,7 +363,7 @@ def test_Ptycho2DDataset_remove_translations_mask(ptycho_cxi_1):
     copied_dataset.remove_translations_mask(mask_remove=mask_success)
 
     # test if the mask is removed and patterns length is correct
-    assert len(copied_dataset.patterns) == len(mask_success) - 35 # should fail
+    assert len(copied_dataset.patterns) == len(mask_success) - 3
 
 
 def test_Ptycho2DDataset_crop_translations(ptycho_cxi_1):
