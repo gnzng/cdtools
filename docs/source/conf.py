@@ -72,7 +72,6 @@ autodoc_default_options = {
     "special-members": "__init__",
     "member-order": "bysource",
 }
-autodoc_default_flags = ["show-inheritance"]
 
 
 # Add any paths that contain templates here, relative to this directory.
