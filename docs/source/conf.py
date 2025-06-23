@@ -61,6 +61,11 @@ extensions = [
 ]
 
 
+# for multiversion, only build tags and latest branch
+smv_tag_whitelist = r"^v?\d+\.\d+.*$"  # Tags like v1.0, v2.1.0, 1.0, 2.1.0
+smv_branch_whitelist = r"^(main|master)$"  # Only main/master branch
+smv_remote_whitelist = None  # Use local repo
+
 # One only works in 1.8+, the other is depricated in >1.8
 autodoc_default_options = {
     "show-inheritance": True,
@@ -71,7 +76,7 @@ autodoc_default_flags = ["show-inheritance"]
 
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ["_templates"]
+templates_path = ["source/_templates"]
 
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
@@ -125,6 +130,12 @@ html_theme = "sphinx_rtd_theme"
 # 'searchbox.html']``.
 #
 # html_sidebars = {}
+
+html_sidebars = {
+    "**": [
+        "versioning.html",
+    ],
+}
 
 
 # -- Options for HTMLHelp output ---------------------------------------------
