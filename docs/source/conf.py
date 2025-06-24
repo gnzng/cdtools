@@ -51,6 +51,11 @@ html_theme = "furo"
 # Sidebar with versioning
 html_sidebars = {
     "**": [
+        "sidebar/search.html",
+        "sidebar/scroll-start.html",
+        "sidebar/brand.html",
+        "sidebar/navigation.html",
+        "sidebar/scroll-end.html",
         "versioning.html",
     ],
 }
