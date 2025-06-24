@@ -56,7 +56,7 @@ jobs:
         run: |
           pip install --upgrade pip
           pip install -r requirements.txt
-          pip install sphinx sphinx_rtd_theme sphinx-argparse
+          pip install sphinx sphinx_rtd_theme sphinx-argparse sphinx-multiversion furo
           pip install -e . --no-deps
 
       - name: Build docs

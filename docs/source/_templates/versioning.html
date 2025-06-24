@@ -1,0 +1,42 @@
+{%- if versions %}
+<div class="sidebar-tree">
+    <p class="sidebar-tree-caption">
+        <span class="sidebar-tree-caption-text">Versions</span>
+    </p>
+    <ul class="sidebar-tree-list" id="version-list">
+        {%- for item in versions %}
+        <li class="sidebar-tree-item">
+            <a class="sidebar-tree-link reference internal" href="{{ item.url }}" data-version="{{ item.name }}">
+                {{ item.name }}
+            </a>
+        </li>
+        {%- endfor %}
+    </ul>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const currentPath = window.location.pathname;
+        const versionLinks = document.querySelectorAll('#version-list a[data-version]');
+
+        versionLinks.forEach(link => {
+            const version = link.dataset.version;
+
+            if (currentPath.includes('/' + version + '/')) {
+                // Make current version bold and highlighted
+                link.style.fontWeight = 'bold';
+                link.style.color = 'var(--color-brand-primary)';
+                link.style.backgroundColor = 'var(--color-sidebar-item-background--hover)';
+                link.style.borderRadius = '0.25rem';
+                link.style.padding = '0.25rem 0.5rem';
+                link.style.margin = '0.1rem 0';
+                link.style.textDecoration = 'none';
+                link.style.cursor = 'default';
+
+                // Disable clicking on current version
+                link.onclick = function (e) { e.preventDefault(); return false; };
+            }
+        });
+    });
+</script>
+{%- endif %}
