@@ -62,7 +62,7 @@ jobs:
       - name: Build docs
         working-directory: docs
         run: |
-          make html
+          sphinx-multiversion source build/html
 
       - name: List files in docs/build/html
         run: |
